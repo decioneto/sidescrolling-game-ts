@@ -5,24 +5,24 @@ export class Platform {
     private ctx: CanvasRenderingContext2D;
     public position: PlatformPosition;
     public size: PlatformSize;
+    public img: HTMLImageElement;
 
-    constructor(ctx: CanvasRenderingContext2D, position: PlatformPosition) {
+    constructor(
+        ctx: CanvasRenderingContext2D,
+        position: PlatformPosition,
+        image: HTMLImageElement
+    ) {
         this.ctx = ctx;
         this.position = position;
+        this.img = image;
         this.size = {
-            width: 200,
-            height: 20,
+            width: this.img.width,
+            height: this.img.height,
         };
     }
 
     public draw() {
-        this.ctx.fillStyle = 'blue';
-        this.ctx.fillRect(
-            this.position.x,
-            this.position.y,
-            this.size.width,
-            this.size.height
-        );
+        this.ctx.drawImage(this.img, this.position.x, this.position.y);
     }
 
     public platformColision(player: Player) {

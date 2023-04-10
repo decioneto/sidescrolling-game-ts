@@ -12,3 +12,13 @@ export interface KeysMapping {
         pressed: boolean;
     };
 }
+
+export interface WorldPosition {
+    x: number;
+    y: number;
+}
+
+export interface WorldSize {
+    width: number;
+    height: number;
+}
